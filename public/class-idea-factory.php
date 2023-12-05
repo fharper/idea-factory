@@ -234,7 +234,7 @@ class Idea_Factory {
 			postid bigint(20) NOT NULL,
 			time datetime DEFAULT '0000-00-00 00:00:00' NOT NULL,
 			ip varchar(20) NOT NULL,
-			UNIQUE KEY id (id)
+			PRIMARY KEY id (id)
 		);";
 
 		require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
@@ -293,7 +293,7 @@ class Idea_Factory {
 			postid bigint(20) NOT NULL,
 			time datetime DEFAULT '0000-00-00 00:00:00' NOT NULL,
 			ip varchar(20) NOT NULL,
-			UNIQUE KEY id (id)
+			PRIMARY KEY id (id)
 		);";
 
 		require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
