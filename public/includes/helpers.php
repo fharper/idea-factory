@@ -180,9 +180,10 @@ function idea_factory_is_voting_active( $postid = '' ) {
 
 	$public_can_vote = idea_factory_get_option('if_public_voting','if_settings_main');
 
-	//if ( ( !idea_factory_has_private_voted( $postid ) && is_user_logged_in() || !idea_factory_has_public_voted( $postid ) && $public_can_vote ) && 'approved' !== $status ){
-
-	if ( ( ( false == idea_factory_has_private_voted( $postid ) && is_user_logged_in()) || false == idea_factory_has_public_voted( $postid ) && $public_can_vote == 'on' && !is_user_logged_in() ) && 'approved' !== $status ){
+	if ( (
+		 ( !idea_factory_has_private_voted( $postid ) && is_user_logged_in()) ||
+		 ( !idea_factory_has_public_voted( $postid ) && $public_can_vote == 'on' && !is_user_logged_in() )
+		 ) && 'approved' !== $status ){
 
 		return true;
 
@@ -265,7 +266,7 @@ function idea_factory_has_public_voted( $postid = '', $ip = '' ) {
 
     $table = $wpdb->base_prefix.'idea_factory';
 
-   	$sql =  $wpdb->prepare('SELECT * FROM '.$table.' WHERE ip ="%s" AND postid ="%d"', $ip, $postid );
+   	$sql =  $wpdb->prepare('SELECT * FROM '.$table.' WHERE ip ="%s" AND postid =%d', $ip, $postid );
 
    	$result =  $wpdb->get_results( $sql );
 
@@ -350,9 +351,9 @@ if ( !function_exists('idea_factory_submit_modal') ):
 
 		$public_can_vote = idea_factory_get_option('if_public_voting','if_settings_main');
 
-		$userid 		= $public_can_vote && !is_user_logged_in() ? 1 : get_current_user_ID();
+		$userid 		= $public_can_vote == 'on' && !is_user_logged_in() ? 1 : get_current_user_ID();
 
-		if ( is_user_logged_in() || $public_can_vote ): ?>
+		if ( is_user_logged_in() || $public_can_vote == 'on' ): ?>
 
 			<div class="fade idea-factory-modal" tabindex="-1">
 				<div class="idea-factory-modal-dialog ">

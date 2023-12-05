@@ -48,7 +48,7 @@ class ideaFactoryProcessEntry {
 
 						$userid = get_current_user_ID();
 
-					} elseif ( !is_user_logged_in() && $public_can_vote ) {
+					} elseif ( !is_user_logged_in() && $public_can_vote == 'on' ) {
 
 						$userid = apply_filters('idea_factory_default_public_author', 1 );
 					}
