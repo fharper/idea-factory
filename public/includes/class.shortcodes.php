@@ -2,7 +2,7 @@
 
 /*
 *
-*	Class responsible for building teh various shortcodes used
+*	Class responsible for building the various shortcodes used
 *
 */
 class ideaFactoryShortcodes {
@@ -14,7 +14,7 @@ class ideaFactoryShortcodes {
 	}
 
 	/**
-	*	Show teh votes and vote form within a shortcode
+	*	Show the votes and vote form within a shortcode
 	* 	@since version 1.1
 	*/
 	function idea_factory_sc($atts, $content = null) {
