@@ -55,6 +55,20 @@ class ahIdeaType {
 
 		register_post_type( 'ideas', apply_filters('idea_factory_type_args', $args ) );
 
+		// Add meta data for post ideas added from the admin page
+		function save_ideas_meta( $post_id ) {
+			update_post_meta(
+				$post_id,
+				'_idea_total_votes',
+				0
+			);
+			update_post_meta(
+				$post_id,
+				'_idea_votes',
+				0
+			);
+		}
+		add_action( 'save_post_ideas', 'save_ideas_meta' );
 	}
 }
 
