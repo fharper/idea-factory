@@ -2,7 +2,7 @@
 
 /**
 *
-*	Class responsible for adding a status metabox to single ideas so that admins can manulaly chnage the status
+*	Class responsible for adding a status metabox to single ideas so that admins can manulaly change the status
 *
 *	@since 1.1
 *
