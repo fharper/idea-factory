@@ -18,13 +18,13 @@ class ideaFactoryMeta {
 	/**
 	*
 	*
-	*	Add a status metabox if teh user has opted in for the threshold settings
+	*	Add a status metabox if the user has opted in for the threshold settings
 	*
 	*	@since 1.1
 	*/
 	function add_status_box(){
 
-		// get threashold
+		// get threshold
 		$threshold = idea_factory_get_option('if_threshold','if_settings_main');
 
 		if ( $threshold ) {
